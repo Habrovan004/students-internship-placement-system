@@ -1,63 +1,74 @@
 # 🎓 STUDENTS INTERNSHIP AND ATTACHMENTS PLACEMENT SYSTEM
 
-A web-based application designed to simplify, manage, and streamline the process of **student internship and industrial attachment placement** by connecting **students**, **companies**, and **educational institutions** on a single digital platform.
+A full-stack web application that simplifies and automates the process of internship and attachment placements by connecting **students**, **companies**, and **institutions** on a single platform.
 
 ---
 
 ## 📌 Project Overview
 
-Many students struggle to find suitable internship or attachment opportunities, while institutions and companies face challenges in tracking placements, approvals, and progress. This system addresses these challenges by providing a centralized, transparent, and efficient placement management solution.
+Many students struggle to find internship opportunities, while institutions and companies find it difficult to coordinate and manage placement details. This system solves these problems by providing:
 
-The system allows:
+* APIs for managing data (Backend)
+* A modern frontend UI for interaction (React)
 
-* Students to apply for internships/attachments
-* Companies to post available opportunities
-* Institutions to approve, monitor, and manage placements
+The system helps:
+
+* Students to view and apply for internships
+* Companies to post and manage openings
+* Institutions to approve and monitor placements
 
 ---
 
 ## 👥 Target Users
 
-1. **Students** – Apply for internships and attachments, manage profiles, and track application status
-2. **Companies / Organizations** – Post internship opportunities and manage applicants
-3. **Institution Staff (Admin / Coordinator)** – Approve placements, manage users, and monitor progress
+1. **Students** – Register, view opportunities, apply, and track statuses
+2. **Companies/Organizations** – Post opportunities and manage applications
+3. **Institution Staff (Admin/Coordinator)** – Approve and manage placements
 
 ---
 
 ## ⚙️ Core Features
 
-### 👨‍🎓 Student Module
+### 👨‍🎓 Student Interface
 
 * Student registration and login
 * Profile management
-* View available internship/attachment opportunities
+* Browse internship/attachment opportunities
 * Apply for placements
 * Track application status
 
-### 🏢 Company Module
+### 🏢 Company Interface
 
-* Company registration and login
-* Post internship/attachment opportunities
-* View and manage student applications
-* Accept or reject applicants
+* Company login/registration
+* Create and manage internship listings
+* View and manage applicant lists
 
-### 🏫 Institution / Admin Module
+### 🏫 Institution Admin Interface
 
-* Admin authentication
-* Verify and approve students and companies
+* Admin login
+* Approve/decline student and company registrations
 * Approve internship placements
-* Monitor student placement records
-* Generate reports
+* View placement reports
 
 ---
 
 ## 🛠️ Technology Stack
 
-* **Backend:** Django (Python)
-* **Frontend:** HTML, CSS, JavaScript
-* **Database:** SQLite (Development) / PostgreSQL (Production – optional)
-* **Version Control:** Git
-* **Collaboration Platform:** GitHub
+**Backend**
+
+* Django & Django Rest Framework (DRF)
+
+**Frontend**
+
+* React
+
+**Database**
+
+* SQLite (development) / PostgreSQL (production)
+
+**Version Control & Collaboration**
+
+* Git & GitHub
 
 ---
 
@@ -65,19 +76,32 @@ The system allows:
 
 ```
 students-internship-placement-system/
-│── internship_system/
-│   │── settings.py
-│   │── urls.py
-│   │── asgi.py
-│   │── wsgi.py
+│── backend/                     # Django + DRF
+│   │── internship_system/
+│   │   │── settings.py
+│   │   │── urls.py
+│   │   │── asgi.py
+│   │   │── wsgi.py
+│   │
+│   │── students/                # Student app
+│   │── companies/               # Company app
+│   │── institution/             # Institution/Admin app
+│   │── api/                     # DRF API modules
+│   │
+│   │── manage.py
+│   │── requirements.txt
 │
-│── students/
-│── companies/
-│── institution/
+│── frontend/                    # React app
+│   │── public/
+│   │── src/
+│   │   │── components/
+│   │   │── pages/
+│   │   │── services/            # API calls
+│   │   │── App.js
+│   │   │── index.js
+│   │
+│   │── package.json
 │
-│── templates/
-│── static/
-│── manage.py
 │── README.md
 ```
 
@@ -85,34 +109,36 @@ students-internship-placement-system/
 
 ## 🚀 Installation & Setup Guide
 
-### 1️⃣ Clone the Repository
+### Backend (DRF)
+
+1. Clone the repo
 
 ```bash
-git clone https://github.com/USERNAME/students-internship-placement-system.git
-cd students-internship-placement-system
+git clone https://github.com/Habrovan004/students-internship-placement-system
+cd students-internship-placement-system/backend
 ```
 
-### 2️⃣ Create Virtual Environment
+2. Create a virtual environment
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 3️⃣ Install Dependencies
+3. Install dependencies
 
 ```bash
-pip install django
+pip install -r requirements.txt
 ```
 
-### 4️⃣ Run Migrations
+4. Make and apply migrations
 
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-### 5️⃣ Start the Development Server
+5. Run the server
 
 ```bash
 python manage.py runserver
@@ -120,59 +146,58 @@ python manage.py runserver
 
 Visit: `http://127.0.0.1:8000/`
 
+### Frontend (React)
+
+1. Open a new terminal and go to the frontend folder
+
+```bash
+cd ../frontend
+```
+
+2. Install packages
+
+```bash
+npm install
+```
+
+3. Start the React app
+
+```bash
+npm start
+```
+
+The frontend will open at: `http://localhost:3000`
+
 ---
 
 ## 🤝 Collaboration Workflow (GitHub)
 
-1. Each member works on their **own branch**
-2. Commit changes with clear messages
-3. Push branch to GitHub
-4. Open a **Pull Request**
+1. Create feature branches
+2. Make commits with clear descriptions
+3. Push to GitHub
+4. Open pull requests (PRs)
 5. Team reviews and merges to `main`
-
----
-
-## 📋 Team Roles (Example)
-
-* Backend Development – Student & Company modules
-* Frontend/UI Design
-* Database & Models
-* Documentation & Testing
 
 ---
 
 ## 📈 Future Enhancements
 
-* Email notifications for application updates
-* Internship progress tracking & reports
-* File upload (attachment letters, CVs)
-* SMS notifications
-* Role-based dashboards
-* Mobile-friendly UI
-
----
-
-## 🔒 Security Considerations
-
-* Authentication and authorization
-* Role-based access control
-* Data validation
-* Secure password handling
+* Email/SMS notifications
+* Dashboard analytics
+* User roles & permissions
+* Resume/CV upload
+* Deployment (Heroku / Render / Vercel)
 
 ---
 
 ## 📄 License
 
-This project is developed for **academic purposes**. You are free to modify and improve it.
+This project is developed for **academic purposes** and may be expanded or modified.
 
 ---
 
 ## 📞 Contact
 
 **Project Team:** STUDENTS INTERNSHIP AND ATTACHMENTS PLACEMENT SYSTEM Team
-**Institution:** [Your Institution Name]
-**Course:** [Your Course Name]
-
----
-
-✅ *This project follows real-world software development and collaboration practices using GitHub.*
+**Institution:** ARDHI UNIVERCITY
+**Course:** INFORMATION SYSTEM MANAGEMENTS
