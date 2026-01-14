@@ -3,7 +3,7 @@
 A full-stack web application that simplifies and automates the process of internship and attachment placements by connecting **students**, **companies**, and **institutions** on a single platform.
 
 ---
-
+/home/h-a-g-a-i/my_project/students-internship-placement-system
 ## 📌 Project Overview
 
 Many students struggle to find internship opportunities, while institutions and companies find it difficult to coordinate and manage placement details. This system solves these problems by providing:
