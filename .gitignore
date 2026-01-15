@@ -10,7 +10,7 @@ __pycache__/
 
 # Django stuff
 *.log
-db.sqlite3
+BACKEND/db.sqlite3
 media/
 
 # Environment variables
