@@ -1,31 +1,20 @@
+# models.py
+from django.contrib.auth.models import User
 from django.db import models
 
-# Create your models here.
-class Studentprofile(models.Model):
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    email = models.EmailField()
-    programme = models.CharField(max_length=200, blank=True)
-    year_of_study = models.CharField(max_length=50, blank=True)
-    profile_picture = models.ImageField(
-        upload_to='profile_pictures/', 
-        blank=True, 
-        null=True,
-        default='profile_pictures/default.png'
-    )
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-class Companyprofile(models.Model):
-    company_name = models.CharField(max_length=100)
-    contact_email = models.EmailField(unique=True)
-    phone_number = models.CharField(max_length=15)
-    address = models.TextField()
-    website = models.URLField(blank=True)
-    description = models.TextField(blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
+class StudentProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    programme = models.CharField(max_length=200)
+    year_of_study = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.company_name        
+        return self.user.username
+
+
+class CompanyProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    company_name = models.CharField(max_length=255)
+    location = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.company_name
