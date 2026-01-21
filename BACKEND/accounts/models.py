@@ -23,6 +23,9 @@ class Companyprofile(models.Model):
     address = models.TextField()
     website = models.URLField(blank=True)
     description = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
 
     def __str__(self):
         return self.company_name        
