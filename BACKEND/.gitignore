@@ -1,0 +1,40 @@
+nano .gitignore
+# or
+vim .gitignore
+# or
+gedit .gitignore
+# or
+code .gitignore  # if you have VS Code
+```
+
+**3. Add the files/folders to ignore**
+```
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# Environment variables
+.env
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Database
+*.sqlite3
+*.db
+
+# Logs
+*.log
