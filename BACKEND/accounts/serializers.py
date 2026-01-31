@@ -25,3 +25,13 @@ class CompanyProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = CompanyProfile
         fields = ("id", "user", "user_id", "company_name", "location", "discription")
+
+class ChangePasswordSerializer(serializers.Serializer):
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True, min_length=8)
+    new_password2 = serializers.CharField(required=True)
+
+    def validate(self, attrs):
+        if attrs['new_password'] != attrs['new_password2']:
+            raise serializers.ValidationError({"new_password2": "Passwords do not match."})
+        return attrs        
